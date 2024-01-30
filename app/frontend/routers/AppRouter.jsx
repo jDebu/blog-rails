@@ -13,7 +13,7 @@ const AppRouter = () => {
         <Route
           path="/"
           element={
-            <PublicRoute redirect={'/inicio'}>
+            <PublicRoute redirect={'/'}>
               <HomePage />
             </PublicRoute>
           }
