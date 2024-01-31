@@ -21,3 +21,22 @@ code {
     color: transparent;
   }
 }
+
+aside {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  main {
+    min-width: 728px;
+    max-width: 728px;
+  }
+  aside {
+    display: block;
+    min-width: 352px;
+    max-width: 352px;
+  }
+  .profile-header {
+    display: none;
+  }
+}
