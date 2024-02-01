@@ -16,7 +16,7 @@ export const ArticleList = () => {
   return (
     <div>
       {articles.map((article) => (
-        <Article key={article.id} title={article.title} body={article.body.body} />
+        <Article key={article.id} title={article.title} body={article.body.body} slug={article.slug}/>
       ))}
     </div>
   );

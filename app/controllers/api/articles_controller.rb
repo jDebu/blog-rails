@@ -1,5 +1,5 @@
 class Api::ArticlesController < ApiController
-  before_action :set_article, only: [:show, :update, :destroy]
+  before_action :set_article, only: [:update, :destroy]
 
   def index
     @articles = Article.all
@@ -7,6 +7,7 @@ class Api::ArticlesController < ApiController
   end
 
   def show
+    @article = Article.friendly.find(params[:id])
     render json: @article
   end
 
