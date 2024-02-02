@@ -1,9 +1,12 @@
 import React from 'react'
-import AppRouter from '../routers/AppRouter'
+import { AppRouter } from '../routers/AppRouter'
+import Auth from '../auth/Auth'
 
 const App = () => {
   return (
-    <AppRouter />
+    <Auth>
+      <AppRouter />
+    </Auth>
   )
 }
 

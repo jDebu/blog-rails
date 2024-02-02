@@ -1,19 +1,27 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Header } from "../components/ui/Header";
+import React from "react"
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom"
+import { Header } from "../components/ui/Header"
 import { PublicRoute } from "./PublicRoute";
-import "../assets/stylesheets/application.scss";
-import HomeRoutes from "./HomeRouters";
-import Profile from "../assets/images/profile.svg";
-import Location from "../assets/icons/location.svg";
-import Github from "../assets/icons/github.svg";
-import Linkedin from "../assets/icons/linkedin.svg";
-import { Avatar } from "@mui/material";
-import { Container } from "../components/Container";
+import "../assets/stylesheets/application.scss"
+import HomeRoutes from "./HomeRouters"
+import Profile from "../assets/images/profile.svg"
+import Location from "../assets/icons/location.svg"
+import Github from "../assets/icons/github.svg"
+import Linkedin from "../assets/icons/linkedin.svg"
+import { Avatar } from "@mui/material"
+import { Container } from "../components/Container"
+import { LoginPage } from '../pages/admin/LoginPage'
+import { useAuth } from "../auth/Auth";
+import { PrivateRoute } from "./PrivateRoute";
+import { AdminRoutes } from "./AdminRoutes";
 
-const AppRouter = () => {
+const AppRouterInternal = () => {
+  const location = useLocation()
+  const isAdminRoute = /^\/admin(?:\/|$)/.test(location.pathname);
+  const { admin } = useAuth() || {}
+
   return (
-    <BrowserRouter>
+    <div>
       <Header />
       <div className="block">
         <div className="flex justify-evenly">
@@ -25,6 +33,22 @@ const AppRouter = () => {
             </Container>
             <Routes>
               <Route
+                path="/admin"
+                element={
+                  <PublicRoute isAuthenticated={admin.logged} redirect="/admin/inicio">
+                    <LoginPage />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/admin/*"
+                element={
+                  <PrivateRoute isAuthenticated={admin?.logged} redirect="/admin">
+                    <AdminRoutes />
+                  </PrivateRoute>
+                }
+              />
+              <Route
                 path="/*"
                 element={
                   <PublicRoute redirect={"/"}>
@@ -34,7 +58,7 @@ const AppRouter = () => {
               />
             </Routes>
           </main>
-          <aside className="mt-4 ml-2">
+          {!isAdminRoute && (<aside className="mt-4 ml-2">
             <div>
               <div className="profile m-auto">
                 <Avatar
@@ -66,11 +90,17 @@ const AppRouter = () => {
                 </div>
               </div>
             </div>
-          </aside>
+          </aside>)}
         </div>
       </div>
-    </BrowserRouter>
+    </div>
   );
 };
 
-export default AppRouter;
+export const AppRouter = () => {
+  return (
+    <BrowserRouter>
+      <AppRouterInternal />
+    </BrowserRouter>
+  );
+};
