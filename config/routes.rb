@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   namespace :api do
     resources :articles
   end
+  namespace :admin do
+    resources :sessions
+  end
   # Defines the root path route ("/")
   root to: 'main#index'
   get '/*path', to: 'main#index', constraints: ->(req) { req.path.exclude? 'rails/active_storage' }
