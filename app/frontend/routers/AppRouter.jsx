@@ -11,20 +11,23 @@ import Linkedin from "../assets/icons/linkedin.svg"
 import { Avatar } from "@mui/material"
 import { Container } from "../components/Container"
 import { LoginPage } from '../pages/admin/LoginPage'
-import { useAuth } from "../auth/Auth";
-import { PrivateRoute } from "./PrivateRoute";
-import { AdminRoutes } from "./AdminRoutes";
+import { useAuth } from "../auth/Auth"
+import { PrivateRoute } from "./PrivateRoute"
+import { AdminRoutes } from "./AdminRoutes"
+import clsx from "clsx"
+import { isAdminRoute } from "../helpers/helpers";
 
 const AppRouterInternal = () => {
-  const location = useLocation()
-  const isAdminRoute = /^\/admin(?:\/|$)/.test(location.pathname);
   const { admin } = useAuth() || {}
 
   return (
     <div>
       <Header />
       <div className="block">
-        <div className="flex justify-evenly">
+        <div className={clsx(
+            {'flex justify-evenly': !isAdminRoute },
+            {'container mx-auto px-5 md:px-20 items-center': isAdminRoute }
+          )}>
           <main className="mt-4 flex-auto">
             <Container className="px-5 md:px-20 flex items-center">
               <div className="profile-header py-3">

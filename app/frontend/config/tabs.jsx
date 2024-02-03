@@ -1,20 +1,34 @@
 import React from 'react'
 import { HomePage } from '../pages/HomePage'
 import { About } from '../pages/About'
+import { HomePage as HomePageAdmin } from '../pages/admin/HomePage'
+import { ArticlesPage } from '../pages/admin/ArticlesPage'
 
-const getTabsTree = () => [
+const getTabsTree = (isAdminTab) => [
   {
     name: 'Home',
     path: '/',
     component: <HomePage />,
-    visible: true
+    visible: !isAdminTab
   },
   {
     name: 'About',
     path: '/about',
     component: <About />,
-    visible: true
-  }
+    visible: !isAdminTab
+  },
+  {
+    name: 'Home',
+    path: '/admin/home',
+    component: <HomePageAdmin />,
+    visible: isAdminTab
+  },
+  {
+    name: 'Articles',
+    path: '/admin/articles',
+    component: <ArticlesPage />,
+    visible: isAdminTab
+  },
 ]
 
 const flatTabsTreeAndFilterVisible = tabs => {

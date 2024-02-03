@@ -11,11 +11,12 @@ import {
 import { Container } from '../Container'
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown'
 import clsx from 'clsx'
+import { isAdminRoute } from '../../helpers/helpers'
 
 
 export const HomeTab = () => {
   const [tabIndex, setTabIndex] = useState(0)
-  const tabsTree = getTabsTree()
+  const tabsTree = getTabsTree(isAdminRoute)
   const flattedTabs = flatTabsTreeAndFilterVisible(tabsTree)
   const location = useLocation()
   const navigate = useNavigate()
