@@ -9,10 +9,16 @@ class Admin::SessionsController < AdminController
         name: @user.name,
         email: @user.email
       }, 7.days.from_now.to_i)
-      render json: { token: }, status: :ok
+      session[:admin_token] = token
+      render json: { token: , name: @user.name}, status: :ok
     else
-      render json: { error: 'Credenciales incorrectas' }, status: :unprocessable_entity
+      render json: { error: 'Incorrect credentials' }, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    session.delete(:admin_token)
+    render json: { message: 'Session closed successfully' }, status: :ok
   end
 
   def set_user

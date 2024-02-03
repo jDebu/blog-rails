@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from '../../components/Container'
 
-export const Dashboard = () => {
+export const HomePage = () => {
   return (
     <Container className="px-5 md:px-20 md:mt-2">
       <section className="justify-center py-12">

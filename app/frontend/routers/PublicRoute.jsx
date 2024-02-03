@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
-export const PublicRoute = ({ isAuthenticated, children, redirect = '/inicio' }) =>
+export const PublicRoute = ({ isAuthenticated, children, redirect = '/home' }) =>
   !isAuthenticated ? children : <Navigate to={redirect} />
 
 PublicRoute.propTypes = {

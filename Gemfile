@@ -51,3 +51,5 @@ gem "vite_rails", "~> 3.0"
 gem "friendly_id", "~> 5.5"
 
 gem "jwt", "~> 2.7"
+
+gem "activerecord-session_store", "~> 2.1"

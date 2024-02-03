@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     resources :articles
   end
   namespace :admin do
-    resources :sessions
+    resources :sessions, only: [:create]
+    delete 'sessions', to: 'sessions#destroy', as: 'destroy_admin_session'
   end
   # Defines the root path route ("/")
   root to: 'main#index'

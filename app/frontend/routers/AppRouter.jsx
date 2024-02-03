@@ -35,7 +35,7 @@ const AppRouterInternal = () => {
               <Route
                 path="/admin"
                 element={
-                  <PublicRoute isAuthenticated={admin.logged} redirect="/admin/inicio">
+                  <PublicRoute isAuthenticated={admin.logged} redirect="/admin/home">
                     <LoginPage />
                   </PublicRoute>
                 }

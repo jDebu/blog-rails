@@ -1,4 +1,5 @@
-const { colors, borderWidth, maxWidth, fontSize, minWidth, height, boxShadow } = require('tailwindcss/defaultTheme')
+const { borderWidth, maxWidth, fontSize, minWidth, height, boxShadow } = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   content: [
@@ -72,6 +73,9 @@ module.exports = {
       stone: {
         ...colors.stone,
         800: "#242424"
+      },
+      orange: {
+        ...colors.orange
       }
     },
     minWidth: {

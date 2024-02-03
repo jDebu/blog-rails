@@ -5,6 +5,7 @@ class AdminController < ActionController::API
   def authentication_request
     header = request.headers['Authorization']
     header = header.split(' ').last if header
+    header ||= session[:admin_token]
     decoded = jwt_decode(header)
     if decoded == 'Token not found'
       render json: { error: 'Not authenticated' }, status: :unauthorized

@@ -29,7 +29,7 @@ export const LoginPage = () => {
 
       dispatch({ type: 'Login', payload: { ...jsonResponse } })
 
-      navigate('/admin/inicio')
+      navigate('/admin/home')
       
     } catch (error) {
       return { [FORM_ERROR]: `Ocurrió un error: ${error}` }
