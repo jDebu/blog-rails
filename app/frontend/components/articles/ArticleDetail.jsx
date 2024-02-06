@@ -6,7 +6,6 @@ import { Article } from './Article';
 export const ArticleDetail = () => {
   const [article, setArticle] = useState(null);
   const { slug } = useParams()
-  console.log('entro detail', slug )
 
   useEffect(() => {
     const fetchArticle = async () => {

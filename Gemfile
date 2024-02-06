@@ -12,7 +12,7 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jbuilder"
+gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
@@ -53,3 +53,7 @@ gem "friendly_id", "~> 5.5"
 gem "jwt", "~> 2.7"
 
 gem "activerecord-session_store", "~> 2.1"
+
+gem "pg_search", "~> 2.3"
+
+gem "kaminari", "~> 1.2"

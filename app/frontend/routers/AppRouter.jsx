@@ -26,9 +26,12 @@ const AppRouterInternal = () => {
       <div className="block">
         <div className={clsx(
             {'flex justify-evenly': !isAdminRoute },
-            {'container mx-auto px-5 md:px-20 items-center': isAdminRoute }
+            {'container mx-auto px-5 md:px-20 items-center mt-4': isAdminRoute }
           )}>
-          <main className="mt-4 flex-auto">
+          <main className={clsx(
+            {'mt-4 flex-auto': !isAdminRoute },
+            {'inline': isAdminRoute }
+          )}>
             <Container className="px-5 md:px-20 flex items-center">
               <div className="profile-header py-3">
                 <h1 className="font-black">José Delgado</h1>

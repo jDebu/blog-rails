@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+  include PgSearch::Model
   extend FriendlyId
   friendly_id :title, use: :slugged
 
@@ -8,6 +9,16 @@ class Article < ApplicationRecord
   validates :body, presence: true
 
   before_save :generate_slug
+
+  pg_search_scope :search_for,
+                  against: %i[title],
+                  ignoring: :accents,
+                  using: {
+                    tsearch: {},
+                    trigram: {
+                      threshold: 0.1
+                    }
+                  }
 
   private
 

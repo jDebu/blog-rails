@@ -24,7 +24,6 @@ const reducer = (state = {}, action) => {
 
 const Auth = ({ children }) => {
   const [admin, dispatch] = useReducer(reducer, {}, init)
-  console.log('deberia entrar')
   useEffect(() => {
     if (!admin || Object.keys(admin).length === 0) return
     setItemToLocalStorage('adminData', JSON.stringify(admin))

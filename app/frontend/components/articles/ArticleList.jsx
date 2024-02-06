@@ -11,8 +11,6 @@ export const ArticleList = () => {
       .catch((error) => console.error('Error fetching articles:', error))
   }, [])
 
-  console.log(articles)
-
   return (
     <div>
       {articles.map((article) => (
