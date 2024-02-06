@@ -13,8 +13,10 @@ Rails.application.routes.draw do
     delete 'sessions', to: 'sessions#destroy', as: 'destroy_admin_session'
     namespace :api do
       resources :articles
+      resources :images
     end
   end
+  
   # Defines the root path route ("/")
   root to: 'main#index'
   get '/*path', to: 'main#index', constraints: ->(req) { req.path.exclude? 'rails/active_storage' }

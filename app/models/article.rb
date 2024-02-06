@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   friendly_id :title, use: :slugged
 
   has_rich_text :body
+  has_many :images
 
   validates :title, presence: true
   validates :body, presence: true

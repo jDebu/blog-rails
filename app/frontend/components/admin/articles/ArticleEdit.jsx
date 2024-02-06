@@ -15,7 +15,7 @@ export const ArticleEdit = () => {
 
   const onSubmit = async values => {
     try {
-      patchArticle(values)
+      await patchArticle(values)
       navigate('/admin/articles')
     } catch (error) {
       return { [FORM_ERROR]: 'Ocurrió un error al editar el usuario.' }

@@ -16,6 +16,7 @@ class Admin::Api::ArticlesController < ApiController
     @article = Article.new(article_params)
 
     if @article.save
+      associate_images(@article)
       render json: @article, status: :created
     else
       render json: @article.errors, status: :unprocessable_entity
@@ -24,6 +25,7 @@ class Admin::Api::ArticlesController < ApiController
 
   def update
     if @article.update(article_params)
+      associate_images(@article)
       render json: @article
     else
       render json: @article.errors, status: :unprocessable_entity
@@ -44,4 +46,5 @@ class Admin::Api::ArticlesController < ApiController
   def article_params
     params.permit(:title, :body)
   end
+
 end
