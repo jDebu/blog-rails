@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Form, Field } from 'react-final-form'
 
 import PropTypes from 'prop-types'
-import { Button, Card, CardMedia, CircularProgress, IconButton, TextField } from '@mui/material'
+import { Button, CircularProgress, IconButton, TextField } from '@mui/material'
 import MdEditor  from '@uiw/react-md-editor'
 import DeleteIcon from '@mui/icons-material/Delete'
+import CodeMermaid from '../../ui/CodeMermaid'
+
 
 
 export const ArticlesForm = ({ initialValues = {}, onSubmit, create }) => {
@@ -96,7 +98,16 @@ export const ArticlesForm = ({ initialValues = {}, onSubmit, create }) => {
           />
           <div className="mt-4">
             <label>Body:</label>
-            <MdEditor value={bodyValue} onChange={handleBodyChange} height={300} />
+            <MdEditor
+              value={bodyValue}
+              onChange={handleBodyChange}
+              height={300}
+              previewOptions={{
+                components: {
+                  code: CodeMermaid
+                }
+              }}
+            />
           </div>
           <div className="mt-4">
             <label>Available Images:</label>
