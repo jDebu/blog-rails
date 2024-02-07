@@ -34,7 +34,7 @@ export const HomeTab = () => {
     <Tabs selectedIndex={tabIndex} onSelect={handleTabsChange}>
       <div className="md:flex md:h-17 md:bg-white shadow-menu-dashboard relative z-10">
         <Container className="px-0 md:px-20">
-          <TabList className='md:flex flex-col md:flex-row bg-gray-30 absolute md:static w-full'>
+          <TabList className='tablist md:flex flex-col md:flex-row bg-gray-30 absolute md:static w-full'>
             {flattedTabs.map((tab, index) => (
               <Tab
                 className={clsx(

@@ -83,6 +83,13 @@ module.exports = {
       25: '6.25rem',
       36: '9rem'
     },
+    lineHeight: {
+      13: '3.25rem'
+    },
+    fontSize: {
+      ...fontSize,
+      3.5: '2.625rem'
+    },
   },
   plugins: []
 }

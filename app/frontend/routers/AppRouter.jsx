@@ -29,7 +29,7 @@ const AppRouterInternal = () => {
             {'container mx-auto px-5 md:px-20 items-center mt-4': isAdminRoute }
           )}>
           <main className={clsx(
-            {'mt-4 flex-auto': !isAdminRoute },
+            {'mt-4 mb-8 flex-auto': !isAdminRoute },
             {'inline': isAdminRoute }
           )}>
             <Container className="px-5 md:px-20 flex items-center">

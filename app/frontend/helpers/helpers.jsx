@@ -6,6 +6,7 @@ export const getItemFromLocalStorage = key => localStorage.getItem(key)
 export const getJsonItemFromLocalStorage = key => JSON.parse(getItemFromLocalStorage(key))
 export const removeItemFromLocalStorage = keys => keys.map(key => localStorage.removeItem(key))
 export const isAdminRoute =  /^\/admin(?:\/|$)/.test(location.pathname)
+export const isArticleDetailRoute = /^\/articles\/.*$/.test(window.location.pathname);
 export const getFirstLetter = (name = '') => (name.match(/[a-z]/i).length > 0 ? name.match(/[a-z]/i)[0].toUpperCase() : '')
 export const fieldWidthSizes = {
   full: 'w-full',

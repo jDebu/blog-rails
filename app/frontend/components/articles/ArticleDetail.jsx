@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Container } from '../Container';
-import { Article } from './Article';
+import { Container } from '../Container'
+import { Article } from './Article'
 
 export const ArticleDetail = () => {
   const [article, setArticle] = useState(null);
@@ -19,7 +19,6 @@ export const ArticleDetail = () => {
         setArticle(articleData);
       } catch (error) {
         console.error(error);
-        // Manejo de errores, por ejemplo, redirección a una página de error
       }
     };
 
@@ -27,12 +26,11 @@ export const ArticleDetail = () => {
   }, [slug]);
 
   if (!article) {
-    // Puedes mostrar un indicador de carga o un mensaje mientras se carga el artículo
     return <div>Loading...</div>;
   }
 
   return (
-    <Container className="px-5 md:px-20 flex items-center">
+    <Container className="px-5 md:px-20 lg:px-2 flex items-center">
       <Article key={article.id} title={article.title} body={article.body.body} slug={article.slug} listMode={false}/>
     </Container>
   );

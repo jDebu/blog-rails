@@ -40,3 +40,11 @@ aside {
     display: none;
   }
 }
+
+ul, ol {
+  list-style-type: disc;
+}
+
+.tablist {
+  list-style-type: none;
+}
